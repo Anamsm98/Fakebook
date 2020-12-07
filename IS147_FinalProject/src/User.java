@@ -8,7 +8,7 @@ public class User {
 
     public User() {
         System.out.println("To create an account please enter your name, age, year of birth, month of birth, day of birth, and finally your email.");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         int age = scanner.nextInt();
         int year = scanner.nextInt();
         int month = scanner.nextInt();
@@ -50,8 +50,10 @@ public class User {
                 }
             }
             System.out.printf("%s has been added to your friends list!",user.account.name);
+            System.out.println();
         } else {
             System.out.printf("%s is on your friends list.",user.account.name);
+            System.out.println();
         }
     }
 
@@ -64,8 +66,10 @@ public class User {
                 }
             }
             System.out.printf("%s has been removed from your friends list.",user.account.name);
+            System.out.println();
         } else {
             System.out.printf("%s is not on your friends list.",user.account.name);
+            System.out.println();
         }
     }
 
