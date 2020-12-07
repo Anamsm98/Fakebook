@@ -2,7 +2,6 @@ import java.time.LocalTime;
 
 public class Submission {
     protected LocalTime time;
-    protected boolean draftStatus;
 
     static void description() {
         System.out.println("This is a submission");
@@ -20,10 +19,9 @@ public class Submission {
 class Text extends Submission {
     final private String text;
 
-    public Text(String text, boolean status) {
+    public Text(String text) {
         this.text = text;
         this.time = LocalTime.now();
-        this.draftStatus = status;
     }
 
     public String getText() {
@@ -35,11 +33,10 @@ class Image extends Submission {
     final private String url;
     final private String caption;
 
-    public Image(String url, String caption, boolean status) {
+    public Image(String url, String caption) {
         this.url = url;
         this.caption = caption;
         this.time = LocalTime.now();
-        this.draftStatus = status;
     }
 
     public String getUrl() {
