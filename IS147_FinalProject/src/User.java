@@ -17,6 +17,7 @@ public class User {
         this.account = new Account(name,age,year,month,day,email);
         this.friends = new User[100];
         this.posts = new Submission[100];
+        System.out.println("Your Fakebook account has been created!");
     }
 
     private String validateEmail() {
@@ -48,7 +49,7 @@ public class User {
                     break;
                 }
             }
-            System.out.printf("%s has been added to your friends list.",user.account.name);
+            System.out.printf("%s has been added to your friends list!",user.account.name);
         } else {
             System.out.printf("%s is on your friends list.",user.account.name);
         }
@@ -110,16 +111,30 @@ public class User {
                 break;
             }
         }
-        System.out.println("Your post has been successfully created.");
+        System.out.println("Your post has been successfully created!");
     }
 
-    public void deletePost(Submission post) {
-        for (int i = 0; i < this.posts.length; i++) {
-            if (this.posts[i] == post) {
-                this.posts[i] = null;
-                break;
-            }
+    public void deletePost(int index) {
+        if (this.posts[index - 1] != null) {
+            this.posts[index - 1] = null;
         }
         System.out.println("This post has been deleted.");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello and welcome to Fakebook!");
+        User anam = new User();
+        User zaid = new User();
+        User mahmood = new User();
+        System.out.println("Let's add a few friends.");
+        anam.addFriend(zaid);
+        anam.addFriend(mahmood);
+        System.out.println("If you don't want a friend anymore you can always remove them.");
+        anam.removeFriend(mahmood);
+        System.out.println("Next let's try creating your first post.");
+        anam.createPost();
+        System.out.println("You can also delete your post if you're unhappy with it. Just enter the number of the post.");
+        anam.deletePost(1);
+        System.out.println("Thanks for joining Fakebook!");
     }
 }
